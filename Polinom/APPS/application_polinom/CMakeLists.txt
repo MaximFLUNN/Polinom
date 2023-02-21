@@ -1,0 +1,1 @@
+new_app(APP_polinom)
