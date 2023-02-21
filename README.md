@@ -1,1 +1,1 @@
-# Polinom
+# Project polinom
