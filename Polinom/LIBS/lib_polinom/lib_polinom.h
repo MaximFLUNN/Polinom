@@ -1,4 +1,4 @@
-// Copyright 2022 Filatov Maxim
+// Copyright 2023 Filatov Maxim
 #ifndef INCLUDE_POLINOM_H_
 #define INCLUDE_POLINOM_H_
 

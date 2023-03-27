@@ -34,6 +34,10 @@ add_subdirectory(LIBS/lib_list)
 add_subdirectory(LIBS/lib_term)
 add_subdirectory(LIBS/lib_xiaoexpr)
 add_subdirectory(LIBS/lib_color)
+#tables
+add_subdirectory(LIBS/lib_interface_table)
+add_subdirectory(LIBS/lib_linear_array_table)
+add_subdirectory(LIBS/lib_linear_list_table)
 
 add_subdirectory(TESTS/tests_monom)
 add_subdirectory(TESTS/tests_polinom)

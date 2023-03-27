@@ -1,4 +1,4 @@
-// Copyright 2022 Filatov Maxim
+// Copyright 2023 Filatov Maxim
 
 #include <gtest/gtest.h>
 #include "../../LIBS/lib_monom/lib_monom.h"

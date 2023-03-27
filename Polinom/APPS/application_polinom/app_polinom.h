@@ -1,7 +1,8 @@
-﻿// Copyright 2022 Filatov Maxim
+﻿// Copyright 2023 Filatov Maxim
 
 #include "../../LIBS/lib_polinom/lib_polinom.h"
 #include "../../LIBS/lib_color/Color.h"
+#include "../../LIBS/lib_linear_array_table/linear_array_table.h"
 
 #define WIDTH_START_CONSOLE 120
 
@@ -246,6 +247,25 @@ void test() {
 	std::cout << color(colors::blue_dark) << "\nFirst equal to third: " << color();
 	if (eq2) { std::cout << color(colors::green) << "true"; }
 	else { std::cout << color(colors::red) << "false"; }
+	print_end();
+	getch();
+	print_start("Task(13 / 12) - test array table");
+	Array_table tbl = Array_table(5);
+	std::cout << "-----Add 4 polinoms----\n";
+	tbl.insert("pol1", p11);
+	tbl.insert("pol2", p10);
+	tbl.insert("pol3", p9);
+	tbl.insert("pol4", p8);
+	std::cout << "-------------------\n";
+	tbl.print();
+	std::cout << "----------Remove pol3-----------\n";
+	tbl.remove("pol3");
+	std::cout << "-------------------\n";
+	tbl.print();
+	std::cout << "----------Update pol1-----------\n";
+	tbl.update("pol1", p4);
+	std::cout << "-------------------\n";
+	tbl.print();
 	print_end();
 	getch();
 }

@@ -1,4 +1,4 @@
-// Copyright 2022 Filatov Maxim
+// Copyright 2023 Filatov Maxim
 #ifndef INCLUDE_LIST_H_
 #define INCLUDE_LIST_H_
 
