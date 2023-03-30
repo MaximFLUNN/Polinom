@@ -240,4 +240,15 @@ Polinom Polinom::operator -= (int number) {
 
 Polinom::~Polinom() {}
 
+std::ostream& operator<<(std::ostream& os, const Polinom& polinom) {
+	bool first = true;
+	std::string out = "";
+	for (auto& element : polinom.monomial_list) {
+		out += ((element.check_data().coefficient) > 0 ? !first ? "+" : "" : "");
+		first ? first = !first : NULL;
+		out += element.check_data().get_string(false);
+	}
+	return os << out;
+}
+
 #pragma endregion

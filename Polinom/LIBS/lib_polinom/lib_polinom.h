@@ -46,5 +46,5 @@ public:
 private:
 
 };
-
+std::ostream& operator<<(std::ostream& os, const Polinom& polinom);
 #endif  // INCLUDE_POLINOM_H_

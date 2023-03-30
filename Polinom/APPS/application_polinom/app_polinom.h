@@ -3,6 +3,7 @@
 #include "../../LIBS/lib_polinom/lib_polinom.h"
 #include "../../LIBS/lib_color/Color.h"
 #include "../../LIBS/lib_linear_array_table/linear_array_table.h"
+#include "../../LIBS/lib_linear_list_table/linear_list_table.h"
 
 #define WIDTH_START_CONSOLE 120
 
@@ -250,7 +251,7 @@ void test() {
 	print_end();
 	getch();
 	print_start("Task(13 / 12) - test array table");
-	Array_table tbl = Array_table(5);
+	Array_table<Polinom> tbl = Array_table<Polinom>(5);
 	std::cout << "-----Add 4 polinoms----\n";
 	tbl.insert("pol1", p11);
 	tbl.insert("pol2", p10);
@@ -266,6 +267,25 @@ void test() {
 	tbl.update("pol1", p4);
 	std::cout << "-------------------\n";
 	tbl.print();
+	print_end();
+	getch();
+	print_start("Task(14 / 12) - test list table");
+	List_table<Polinom> tbl2;
+	std::cout << "-----Add 4 polinoms----\n";
+	tbl2.insert("pol1", p11);
+	tbl2.insert("pol2", p10);
+	tbl2.insert("pol3", p9);
+	tbl2.insert("pol4", p8);
+	std::cout << "-------------------\n";
+	tbl2.print();
+	std::cout << "----------Remove pol3-----------\n";
+	tbl2.remove("pol3");
+	std::cout << "-------------------\n";
+	tbl2.print();
+	std::cout << "----------Update pol1-----------\n";
+	tbl2.update("pol1", p4);
+	std::cout << "-------------------\n";
+	tbl2.print();
 	print_end();
 	getch();
 }
