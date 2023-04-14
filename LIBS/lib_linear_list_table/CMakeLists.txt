@@ -1,1 +1,0 @@
-new_lib(LIB_list_table)

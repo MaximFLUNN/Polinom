@@ -1,1 +1,0 @@
-new_lib(LIB_ordered_array_table)
