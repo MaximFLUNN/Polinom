@@ -1,0 +1,1 @@
+new_lib(LIB_double_hashing_table)
