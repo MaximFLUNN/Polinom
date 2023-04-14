@@ -8,13 +8,13 @@
 #include "../../LIBS/lib_interface_table/interface_table.h"
 
 template <class T>
-class Array_table : public iTable<T> {
-private:
+class Array_table : public ITable<T> {
+protected:
 	std::pair<std::string, T>* pairs;
 	int m_size;
 	int m_inside_size;
 
-	void place(std::string key, T tbl_obj, int idx) {
+	void write_in_table(std::string key, T tbl_obj, int idx) {
 		pairs[idx] = std::pair<std::string, T>(key, tbl_obj);
 	}
 public:
@@ -35,13 +35,13 @@ public:
 		if (isFull()) throw std::logic_error("Table is full, error in insert method!");
 		int idx = find(key);
 		if (idx != NOT_FOUND) throw std::logic_error("The table already has an instance with the same name, error in insert method!");
-		place(key, tbl_obj, m_inside_size);
+		write_in_table(key, tbl_obj, m_inside_size);
 		m_inside_size++;
 	}
 	void update(std::string key, T tbl_obj) override {
 		int idx = find(key);
 		if (idx == NOT_FOUND) throw std::logic_error("The specified element was not found, error in update method!");
-		place(key, tbl_obj, idx);
+		write_in_table(key, tbl_obj, idx);
 	}
 	void remove(std::string key) override {
 		if (isClear()) throw std::logic_error("Table is clear, error in remove method!");
@@ -66,10 +66,10 @@ public:
 		return pairs[idx].second;
 	}
 	int size() override {
-		return m_size;
+		return m_inside_size;
 	}
 	int inside_size() {
-		return m_inside_size;
+		return m_size;
 	}
 	void print() override {
 		for (int i = 0; i < m_inside_size; i++) {
@@ -77,7 +77,7 @@ public:
 		}
 	}
 	bool isClear() {
-		return m_size == NULL;
+		return m_inside_size == NULL;
 	}
 	bool isFull() {
 		return m_size == m_inside_size;

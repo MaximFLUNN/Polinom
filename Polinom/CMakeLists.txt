@@ -38,6 +38,8 @@ add_subdirectory(LIBS/lib_color)
 add_subdirectory(LIBS/lib_interface_table)
 add_subdirectory(LIBS/lib_linear_array_table)
 add_subdirectory(LIBS/lib_linear_list_table)
+add_subdirectory(LIBS/lib_ordered_array_table)
+add_subdirectory(LIBS/lib_double_hashing_table)
 
 add_subdirectory(TESTS/tests_monom)
 add_subdirectory(TESTS/tests_polinom)

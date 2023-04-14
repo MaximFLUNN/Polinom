@@ -4,6 +4,8 @@
 #include "../../LIBS/lib_color/Color.h"
 #include "../../LIBS/lib_linear_array_table/linear_array_table.h"
 #include "../../LIBS/lib_linear_list_table/linear_list_table.h"
+#include "../../LIBS/lib_ordered_array_table/ordered_array_table.h"
+#include "../../LIBS/lib_double_hashing_table/double_hashing_table.h"
 
 #define WIDTH_START_CONSOLE 120
 
@@ -49,12 +51,12 @@ void test() {
 				Var('i', 2),  Var('o', 3),  Var('p', 5)
 			})),
 		}));
-	print_start("Task(1 / 12) - print");
+	print_start("Task(1 / 16) - print");
 	std::cout << color(colors::blue_dark) << "Print: " << color();
 	poly.print();
 	print_end();
 	getch();
-	print_start("Task(2 / 12) - plus and minus monom get_string");
+	print_start("Task(2 / 16) - plus and minus monom get_string");
 	Monom m1 = Monom(13, Term({ Var('x', 2), Var('y', 3) }));
 	Monom m2 = Monom(-10, Term({ Var('x', 2), Var('y', 3) }));
 	std::cout << color(colors::blue_dark) << "Monom plus: " << color();
@@ -63,7 +65,7 @@ void test() {
 	std::cout << m2.get_string();
 	print_end();
 	getch();
-	print_start("Task(3 / 12) - minus two monoms");
+	print_start("Task(3 / 16) - minus two monoms");
 	Monom m3 = m1 - m2;
 	std::cout << color(colors::blue_dark) << "Monom minus monom: " << color();
 	std::cout << m1.get_string() << m2.get_string();
@@ -71,7 +73,7 @@ void test() {
 	std::cout << m3.get_string();
 	print_end();
 	getch();
-	print_start("Task(4 / 12) - polinom plus monoms");
+	print_start("Task(4 / 16) - polinom plus monoms");
 	Monom m4 = Monom(2, Term({ Var('x', 2),  Var('y', 3),  Var('z', 5) }));
 	Monom m4_1 = Monom(2, Term({ Var('q', 2),  Var('w', 3),  Var('e', 5) }));
 	Monom m4_2 = Monom(20, Term({ Var('i', 2),  Var('o', 3),  Var('p', 5) }));
@@ -101,7 +103,7 @@ void test() {
 	print_end();
 	getch();
 	Polinom p2 = p1;
-	print_start("Task(5 / 12) - polinom plus polinom");
+	print_start("Task(5 / 16) - polinom plus polinom");
 	std::cout << color(colors::blue_dark) << "Polinom:                      " << color();
 	p1.print();
 	p1 += p1;
@@ -112,7 +114,7 @@ void test() {
 	p1.print();
 	print_end();
 	getch();
-	print_start("Task(6 / 12) - polinom print with no brackets");
+	print_start("Task(6 / 16) - polinom print with no brackets");
 	Polinom p3 = Polinom(
 		CList<Monom>({
 			Monom(1, {}),
@@ -153,7 +155,7 @@ void test() {
 	std::cout << m7.get_string(false);
 	print_end();
 	getch();
-	print_start("Task(8 / 12) - polinom multiply monom");
+	print_start("Task(8 / 16) - polinom multiply monom");
 	Polinom p4 = Polinom(CList<Monom>({
 			Monom(3, Term({Var('x', 2), Var('y', 2), Var('z', 2)})),
 			Monom(6, Term({Var('x', 3), Var('y', 3), Var('z', 3)})),
@@ -168,7 +170,7 @@ void test() {
 	std::cout << p4.get_string();
 	print_end();
 	getch();
-	print_start("Task(9 / 12) - hard polinom multiply");
+	print_start("Task(9 / 16) - hard polinom multiply");
 	Polinom p5 = Polinom(CList<Monom>({
 			Monom(2, Term({Var('x', 2)})),
 			Monom(4, Term({Var('y', 3)})),
@@ -188,7 +190,7 @@ void test() {
 	p7.print();
 	print_end();
 	getch();
-	print_start("Task(10 / 12) - add monoms");
+	print_start("Task(10 / 16) - add monoms");
 	Monom p8m1 = Monom(4, Term({ Var('x', 2) }));
 	Monom p8m2 = Monom(5, Term({ Var('x', 2) }));
 	Monom p8m3 = Monom(6, Term({ Var('x', 2) }));
@@ -211,7 +213,7 @@ void test() {
 	std::cout << p8.get_string_for_solve();
 	print_end();
 	getch();
-	print_start("Task(11 / 12) - set vars and solve");
+	print_start("Task(11 / 16) - set vars and solve");
 	p8.set_vars({ {'x', 2}, {'y', 2}, {'z', 2}});
 	std::cout << color(colors::blue_dark) << "Polinom: " << color();
 	p8.print();
@@ -221,7 +223,7 @@ void test() {
 	std::cout << p8.calculate();
 	print_end();
 	getch();
-	print_start("Task(12 / 12) - Polinom equals");
+	print_start("Task(12 / 16) - Polinom equals");
 	Polinom p9 = Polinom(CList<Monom>({
 			Monom(4, Term({Var('x', 2)})),
 			Monom(5, Term({Var('y', 3)})),
@@ -250,12 +252,12 @@ void test() {
 	else { std::cout << color(colors::red) << "false"; }
 	print_end();
 	getch();
-	print_start("Task(13 / 12) - test array table");
+	print_start("Task(13 / 16) - test array table");
 	Array_table<Polinom> tbl = Array_table<Polinom>(5);
 	std::cout << "-----Add 4 polinoms----\n";
 	tbl.insert("pol1", p11);
-	tbl.insert("pol2", p10);
 	tbl.insert("pol3", p9);
+	tbl.insert("pol2", p10);
 	tbl.insert("pol4", p8);
 	std::cout << "-------------------\n";
 	tbl.print();
@@ -269,12 +271,12 @@ void test() {
 	tbl.print();
 	print_end();
 	getch();
-	print_start("Task(14 / 12) - test list table");
+	print_start("Task(14 / 16) - test list table");
 	List_table<Polinom> tbl2;
 	std::cout << "-----Add 4 polinoms----\n";
 	tbl2.insert("pol1", p11);
-	tbl2.insert("pol2", p10);
 	tbl2.insert("pol3", p9);
+	tbl2.insert("pol2", p10);
 	tbl2.insert("pol4", p8);
 	std::cout << "-------------------\n";
 	tbl2.print();
@@ -286,6 +288,46 @@ void test() {
 	tbl2.update("pol1", p4);
 	std::cout << "-------------------\n";
 	tbl2.print();
+	print_end();
+	getch();
+	print_start("Task(15 / 16) - test ordered array table");
+	Ordered_array_table<Polinom> tbl3;
+	std::cout << "-----Add 4 polinoms----\n";
+	tbl3.insert("pol1", p11);
+	tbl3.insert("pol3", p9);
+	tbl3.insert("pol2", p10);
+	tbl3.insert("pol4", p8);
+	tbl3.insert("abcd", p3);
+	std::cout << "-------------------\n";
+	tbl3.print();
+	std::cout << "----------Remove pol3-----------\n";
+	tbl3.remove("pol3");
+	std::cout << "-------------------\n";
+	tbl3.print();
+	std::cout << "----------Update pol1-----------\n";
+	tbl3.update("pol1", p4);
+	std::cout << "-------------------\n";
+	tbl3.print();
+	print_end();
+	getch();
+	print_start("Task(16 / 16) - test double hashing table");
+	DoubleHashingTable<Polinom> tbl4;
+	std::cout << "-----Add 4 polinoms----\n";
+	tbl4.insert("pol1", p11);
+	tbl4.insert("pol3", p9);
+	tbl4.insert("pol2", p10);
+	tbl4.insert("pol4", p8);
+	tbl4.insert("abcd", p3);
+	std::cout << "-------------------\n";
+	tbl4.print();
+	std::cout << "----------Remove pol3-----------\n";
+	tbl4.remove("pol3");
+	std::cout << "-------------------\n";
+	tbl4.print();
+	std::cout << "----------Update pol1-----------\n";
+	tbl4.update("pol1", p4);
+	std::cout << "-------------------\n";
+	tbl4.print();
 	print_end();
 	getch();
 }

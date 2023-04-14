@@ -2,7 +2,6 @@
 #ifndef LINEAR_LIST_TABLE_H_
 #define LINEAR_LIST_TABLE_H_
 
-
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -10,12 +9,12 @@
 #include "../../LIBS/lib_list/lib_list.h"
 
 template <class T>
-class List_table : public iTable<T> {
+class List_table : public ITable<T> {
 private:
 	CList<std::pair<std::string, T>> pairs;
 	int m_inside_size;
 
-	void place(std::string key, T tbl_obj, int idx) {
+	void write_in_table(std::string key, T tbl_obj, int idx) {
 		if (idx == m_inside_size) {
 			pairs.push_back(std::pair<std::string, T>(key, tbl_obj));
 		}
@@ -31,13 +30,13 @@ public:
 	void insert(std::string key, T tbl_obj) override {
 		int idx = find(key);
 		if (idx != NOT_FOUND) throw std::logic_error("The table already has an instance with the same name, error in insert method!");
-		place(key, tbl_obj, m_inside_size);
+		write_in_table(key, tbl_obj, m_inside_size);
 		m_inside_size++;
 	}
 	void update(std::string key, T tbl_obj) override {
 		int idx = find(key);
 		if (idx == NOT_FOUND) throw std::logic_error("The specified element was not found, error in update method!");
-		place(key, tbl_obj, idx);
+		write_in_table(key, tbl_obj, idx);
 	}
 	void remove(std::string key) override {
 		if (isClear()) throw std::logic_error("Table is clear, error in remove method!");
@@ -61,9 +60,6 @@ public:
 		return pairs[idx]->get_data().second;
 	}
 	int size() override {
-		return m_inside_size;
-	}
-	int inside_size() {
 		return m_inside_size;
 	}
 	void print() override {

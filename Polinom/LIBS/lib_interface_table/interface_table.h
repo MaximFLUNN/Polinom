@@ -11,15 +11,15 @@
 #define NOT_FOUND -1
 
 template <class T>
-class iTable {
+class ITable {
 public:
-	void virtual insert(std::string key, T polinom) = 0;
-	void virtual update(std::string key, T polinom) = 0;
-	void virtual remove(std::string key) = 0;
-	int virtual find(std::string key) = 0;
-	T virtual get(int idx) = 0;
-	int virtual size() = 0;
-	void virtual print() = 0;
+	void virtual insert(std::string key, T tbl_obj) = NULL;
+	void virtual update(std::string key, T tbl_obj) = NULL;
+	void virtual remove(std::string key) = NULL;
+	int virtual find(std::string key) = NULL;
+	T virtual get(int idx) = NULL;
+	int virtual size() = NULL;
+	void virtual print() = NULL;
 };
 
 #endif  // INCLUDE_INTERFACE_TABLE_H_
