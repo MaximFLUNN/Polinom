@@ -1,0 +1,1 @@
+new_lib(LIB_red_black_tree_table)

@@ -6,6 +6,7 @@
 #include "../../LIBS/lib_linear_list_table/linear_list_table.h"
 #include "../../LIBS/lib_ordered_array_table/ordered_array_table.h"
 #include "../../LIBS/lib_double_hashing_table/double_hashing_table.h"
+#include "../../LIBS/lib_chain_hash_table/chain_hash_table.h"
 
 #define WIDTH_START_CONSOLE 120
 
@@ -328,6 +329,26 @@ void test() {
 	tbl4.update("pol1", p4);
 	std::cout << "-------------------\n";
 	tbl4.print();
+	print_end();
+	getch();
+	print_start("Task(17 / 16) - test chain hash table");
+	ChainHashTable<Polinom> tbl5;
+	std::cout << "-----Add 4 polinoms----\n";
+	tbl5.insert("pol1", p11);
+	tbl5.insert("pol3", p9);
+	tbl5.insert("pol2", p10);
+	tbl5.insert("pol4", p8);
+	tbl5.insert("abcd", p3);
+	std::cout << "-------------------\n";
+	tbl5.print();
+	std::cout << "----------Remove pol3-----------\n";
+	tbl5.remove("pol3");
+	std::cout << "-------------------\n";
+	tbl5.print();
+	std::cout << "----------Update pol1-----------\n";
+	tbl5.update("pol1", p4);
+	std::cout << "-------------------\n";
+	tbl5.print();
 	print_end();
 	getch();
 }

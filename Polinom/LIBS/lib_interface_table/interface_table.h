@@ -8,6 +8,7 @@
 #define MIN_SIZE 1
 #define DEFAULT_SIZE 10
 #define MAX_SIZE 100
+#define MAX_TABLE_ELEMENTS 5000
 #define NOT_FOUND -1
 
 template <class T>

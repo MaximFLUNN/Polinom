@@ -1,0 +1,1 @@
+new_lib(LIB_chain_hash_table)
